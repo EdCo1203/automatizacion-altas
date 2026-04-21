@@ -15,6 +15,9 @@ HORAS_OPTIONS = ["40H", "30H", "20H", "10H"]
 st.sidebar.header("⚙️ Configuración global")
 responsable = st.sidebar.selectbox("Alta solicitada por (responsable)", RESPONSABLES)
 zona_global = st.sidebar.selectbox("Zona por defecto", ZONAS)
+horas_global = st.sidebar.selectbox("Horas por defecto", HORAS_OPTIONS)
+fecha_global = st.sidebar.date_input("Fecha de inicio por defecto", value=date.today())
+
 
 st.sidebar.markdown("---")
 st.sidebar.caption("Horas, fecha de inicio y zona se pueden ajustar por persona.")
@@ -158,8 +161,10 @@ if uploaded:
 
             with col_edit:
                 st.markdown("🟠 **Campos a completar**")
-                horas = st.selectbox("Horas", HORAS_OPTIONS, key=f"{key_prefix}_horas")
-                fecha_inicio = st.date_input("Fecha de inicio", key=f"{key_prefix}_fecha", value=date.today())
+                horas = st.selectbox("Horas", HORAS_OPTIONS,
+                                     index=HORAS_OPTIONS.index(horas_global),
+                                      key=f"{key_prefix}_horas")
+                fecha_inicio = st.date_input("Fecha de inicio", value=fecha_global, key=f"{key_prefix}_fecha", value=date.today())
                 zona_persona = st.selectbox(
                     "Zona", ZONAS, key=f"{key_prefix}_zona",
                     index=ZONAS.index(zona_global) if zona_global in ZONAS else 0
