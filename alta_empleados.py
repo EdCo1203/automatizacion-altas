@@ -9,7 +9,7 @@ st.set_page_config(page_title="Altas de Empleados", layout="wide")
 st.title("📋 Gestión de Altas de Empleados")
 
 ZONAS = ["Barcelona", "Inca", "Palma", "Madrid", "Toledo", "Gran Canarias"]
-RESPONSABLES = ["Camila", "Edgar", "Cesar", "Leomar"]
+RESPONSABLES = ["Camila", "Edgar", "Cesar", "Leomar", "Wilson"]
 HORAS_OPTIONS = ["40H", "30H", "20H", "10H"]
 
 st.sidebar.header("⚙️ Configuración global")
