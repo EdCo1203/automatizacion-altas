@@ -161,17 +161,17 @@ if uploaded:
 
             with col_edit:
                 st.markdown("🟠 **Campos a completar**")
-                horas = st.selectbox("Horas", HORAS_OPTIONS,
+                horas_p = st.selectbox("Horas", HORAS_OPTIONS,
                                      index=HORAS_OPTIONS.index(horas_global),
                                       key=f"{key_prefix}_horas")
-                fecha_inicio = st.date_input("Fecha de inicio", value=fecha_global, key=f"{key_prefix}_fecha", value=date.today())
+                fecha_inicio = st.date_input("Fecha de inicio", value=fecha_global, key=f"{key_prefix}_fecha")
                 zona_persona = st.selectbox(
                     "Zona", ZONAS, key=f"{key_prefix}_zona",
                     index=ZONAS.index(zona_global) if zona_global in ZONAS else 0
                 )
 
                 st.session_state.overrides[i] = {
-                    "horas": horas,
+                    "horas": horas_p,
                     "fecha_inicio": fecha_inicio.strftime("%d/%m/%Y"),
                     "zona": zona_persona,
                 }
